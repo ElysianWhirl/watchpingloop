@@ -3,12 +3,10 @@
 
 DIR=/usr/bin
 
-
 finish()
 {
 clear
 }
-
 download_files()
 {
         clear
