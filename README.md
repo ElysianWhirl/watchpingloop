@@ -1,7 +1,7 @@
 # watchpingloop
 **README**
 
-**Nama Script:** Ping & Mode Pesawat Modem
+**Nama Script:** Ping & Mode Pesawat Modem Handphone
 
 **Deskripsi:**
 Script ini dibuat untuk digunakan pada perangkat OpenWRT guna memudahkan pengguna dalam melakukan ping terhadap host tertentu dan secara otomatis mengaktifkan mode pesawat pada modem HP yang terhubung.
