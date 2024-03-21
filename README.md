@@ -8,7 +8,7 @@ Script ini dibuat untuk digunakan pada perangkat OpenWRT guna memudahkan penggun
 
 **Cara Penggunaan:**
 1. Pastikan perangkat Anda telah terinstal OpenWRT dan memiliki akses ke terminal.
-2. Unduh script dan simpan di dalam perangkat OpenWRT Anda. copy-paste code nomor 3 dibawah
+2. Unduh script dan simpan di dalam perangkat OpenWRT Anda. copy-paste code nomor 3 dibawah kedalam terminal openwrt anda.
 3. bash -c "$(wget -qO - 'https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/install.sh')"
 4. lakukan edit file di /usr/bin/watchpingloop.sh . ganti kalimat "ISI_BUG_ATAU_HOST_DISINI" sesuai dengan kebutuhan.
 5. edit rc.local yang ada di /etc/rc.local
