@@ -14,7 +14,7 @@ disable_airplane_mode() {
 
 # Loop untuk melakukan ping dan mengaktifkan/menonaktifkan mode pesawat
 while true; do
-    if ping -c 1 162.159.138.78 &> /dev/null; then
+    if ping -c 1 ISI_BUG_ATAU_HOST_DISINI &> /dev/null; then
         echo "Host dapat dijangkau."
         sleep 10  # Tunggu sebelum melakukan ping lagi
     else
