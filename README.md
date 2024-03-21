@@ -8,15 +8,18 @@ Script ini dibuat untuk digunakan pada perangkat OpenWRT guna memudahkan penggun
 
 **Cara Penggunaan:**
 1. Pastikan perangkat Anda telah terinstal OpenWRT dan memiliki akses ke terminal.
-2. Unduh script dan simpan di dalam perangkat OpenWRT Anda. copy-paste code dibawah
+2. Unduh script dan simpan di dalam perangkat OpenWRT Anda. copy-paste code nomor 3 dibawah
 3. bash -c "$(wget -qO - 'https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/install.sh')"
-4. 
-5. Script akan mulai melakukan ping terhadap host yang ditentukan.
-6. Jika koneksi terputus, script akan secara otomatis mengaktifkan mode pesawat pada modem HP yang terhubung.
+4. lakukan edit file di /usr/bin/watchpingloop.sh . ganti kalimat "ISI_BUG_ATAU_HOST_DISINI" sesuai dengan kebutuhan.
+5. edit rc.local yang ada di /etc/rc.local
+6. Tambahkan baris perintah "/usr/bin/watchpingloop.sh &" (tanpa tanda petik ") untuk menjalankan skrip di dalamnya sebelum baris "exit 0"
+7. lalu restart perangkat STB
+8. Script akan mulai melakukan ping terhadap host yang ditentukan.
+9. Jika koneksi terputus, script akan secara otomatis mengaktifkan mode pesawat pada modem HP yang terhubung.
 
 
 **Catatan Penting:**
-- Pastikan modem HP Anda terhubung dengan perangkat OpenWRT melalui koneksi yang sesuai.
+- Pastikan modem HP Anda terhubung dengan perangkat OpenWRT melalui koneksi adb yang sesuai.
 - Periksa ketersediaan paket dan dependensi yang diperlukan sebelum menjalankan script.
 - Pastikan konfigurasi jaringan OpenWRT Anda telah diatur dengan benar.
 
