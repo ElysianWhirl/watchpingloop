@@ -13,7 +13,7 @@ download_files()
 {
         clear
         echo "Downloading files from repo watchpingloop..."
-        wget -O $DIR/watchpingloop https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/watchpingloop.sh && chmod +x $DIR/watchpingloop
+        wget -O $DIR/watchpingloop.sh https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/watchpingloop.sh && chmod +x $DIR/watchpingloop
         finish
 }
 
