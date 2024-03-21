@@ -5,13 +5,16 @@ DIR=/usr/bin
 
 
 finish()
+{
+clear
+}
 
 download_files()
 {
-    	clear
-    	echo "Downloading files from repo watchpingloop..."
-     	wget -O $DIR/watchpingloop https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/watchpingloop.sh && chmod +x $DIR/watchpingloop
-      finish
+        clear
+        echo "Downloading files from repo watchpingloop..."
+        wget -O $DIR/watchpingloop https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/watchpingloop.sh && chmod +x $DIR/watchpingloop
+        finish
 }
 
 echo ""
