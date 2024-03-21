@@ -3,9 +3,11 @@
 
 DIR=/usr/bin
 
-finish()
-{
+finish(){
 clear
+        echo ""
+        echo "INSTALL SUCCESSFULLY ;)"
+        echo ""
 }
 download_files()
 {
