@@ -10,13 +10,14 @@ Script ini dibuat untuk digunakan pada perangkat OpenWRT guna memudahkan penggun
 1. Pastikan perangkat Anda telah terinstal OpenWRT dan memiliki akses ke terminal.
 2. Unduh script dan simpan di dalam perangkat OpenWRT Anda. copy-paste code nomor 3 dibawah kedalam terminal openwrt anda.
 3. bash -c "$(wget -qO - 'https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/install.sh')" && chmod +x /usr/bin/watchpingloop.sh
-4. lakukan edit file di /usr/bin/watchpingloop.sh . # Alamat host yang ingin Anda ping
-HOST="alamat_host_anda" sesuai dengan kebutuhan.
-5. edit rc.local yang ada di /etc/rc.local
-6. Tambahkan baris perintah "/usr/bin/watchpingloop.sh &" (tanpa tanda petik ") untuk menjalankan skrip di dalamnya, sebelum baris "exit 0"
-7. lalu restart perangkat STB
-8. Script akan mulai melakukan ping terhadap host yang ditentukan.
-9. Jika koneksi terputus, script akan secara otomatis mengaktifkan mode pesawat pada modem HP yang terhubung.
+4. lakukan edit file di /usr/bin/watchpingloop.sh . HOST="alamat_host_anda" sesuai dengan kebutuhan anda.
+5. setelah itu masuk ke terminal ketik watchpingloop.sh
+6. jika ingin script aktif saat STB dinyalakan
+7. edit rc.local yang ada di /etc/rc.local
+8. Tambahkan baris perintah "/usr/bin/watchpingloop.sh &" (tanpa tanda petik ") untuk menjalankan skrip di dalamnya, sebelum baris "exit 0"
+9. lalu restart perangkat STB
+10. Script akan mulai melakukan ping terhadap host yang ditentukan.
+11. Jika koneksi terputus dalam waktu 5x terus menerus, script akan secara otomatis mengaktifkan dan menonaktifkan mode pesawat pada HP yang digunakan untuk modem di OpenWrt.
 
 
 **Catatan Penting:**
