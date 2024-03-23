@@ -10,7 +10,8 @@ Script ini dibuat untuk digunakan pada perangkat OpenWRT guna memudahkan penggun
 1. Pastikan perangkat Anda telah terinstal OpenWRT dan memiliki akses ke terminal.
 2. Unduh script dan simpan di dalam perangkat OpenWRT Anda. copy-paste code nomor 3 dibawah kedalam terminal openwrt anda.
 3. bash -c "$(wget -qO - 'https://raw.githubusercontent.com/ElysianWhirl/watchpingloop/main/install.sh')" && chmod +x /usr/bin/watchpingloop.sh
-4. lakukan edit file di /usr/bin/watchpingloop.sh . ganti kalimat "ISI_BUG_ATAU_HOST_DISINI" sesuai dengan kebutuhan.
+4. lakukan edit file di /usr/bin/watchpingloop.sh . # Alamat host yang ingin Anda ping
+HOST="alamat_host_anda" sesuai dengan kebutuhan.
 5. edit rc.local yang ada di /etc/rc.local
 6. Tambahkan baris perintah "/usr/bin/watchpingloop.sh &" (tanpa tanda petik ") untuk menjalankan skrip di dalamnya, sebelum baris "exit 0"
 7. lalu restart perangkat STB
