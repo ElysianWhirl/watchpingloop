@@ -4,7 +4,7 @@
 **Nama Script:** Ping & Mode Pesawat Modem Handphone
 
 **Deskripsi:**
-Script ini dibuat untuk digunakan pada perangkat OpenWRT guna memudahkan pengguna dalam melakukan ping terhadap host tertentu dan secara otomatis mengaktifkan dan menonaktifkan mode pesawat pada modem HP yang terhubung.
+Script ini dibuat untuk digunakan pada perangkat OpenWRT guna memudahkan pengguna dalam melakukan ping terhadap host tertentu dan secara otomatis mengaktifkan dan menonaktifkan mode pesawat pada modem HP yang terhubung, jika tidak mendapatkan ping dalam 5x berturut-turut.
 
 **Cara Penggunaan:**
 1. Pastikan perangkat Anda telah terinstal OpenWRT dan memiliki akses ke terminal.
