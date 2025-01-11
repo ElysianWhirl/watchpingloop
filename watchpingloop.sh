@@ -17,7 +17,7 @@ disable_airplane_mode() {
 }
 
 # Alamat host yang ingin Anda ping
-HOST="104.18.214.235"
+HOST="alamat_host_anda_1"
 
 # Interface yang ingin digunakan untuk ping (bisa diubah manual)
 INTERFACE="usb0"
