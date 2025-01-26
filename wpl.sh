@@ -17,8 +17,8 @@ disable_airplane_mode() {
 }
 
 # Alamat host yang ingin Anda ping
-HOST1="104.18.214.235"
-HOST2="104.17.3.81"
+HOST1="host1"
+HOST2="host2"
 
 # Variabel untuk menghitung berapa kali ping gagal
 failed_count=0
