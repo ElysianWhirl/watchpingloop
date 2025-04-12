@@ -35,6 +35,6 @@ Script ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/M
 Pengguna bertanggung jawab penuh atas penggunaan script ini. Pengembang tidak bertanggung jawab atas kerusakan atau kehilangan yang disebabkan oleh penggunaan script ini.
 
 **Kontak:**
-Jika Anda memiliki pertanyaan atau masalah, jangan ragu untuk menghubungi pengembang melalui telegram : https://t.me/aulianbasira
+Jika Anda memiliki pertanyaan atau masalah, jangan ragu untuk menghubungi pengembang melalui telegram : https://t.me/elysianwhyrl
 
 Terima kasih telah menggunakan script ini! Semoga bermanfaat.
