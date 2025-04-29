@@ -1,23 +1,23 @@
-#!/bin/ash
+#!/bin/sh
 
 # Daftar interface dan ADB ID yang akan dipantau
-INTERFACES="usb0 usb1"  # Tambahkan interface lain jika diperlukan
-ADB_IDS="S5PRO20200023315 DEVICE_ID_USB1"  # Sesuaikan dengan ID ADB masing-masing
+INTERFACES="usb0 usb1 usb2"  # Tambahkan interface lain jika diperlukan
+ADB_IDS="DEVICE_ID_USB0 DEVICE_ID_USB1 DEVICE_ID_USB2"  # Sesuaikan dengan ID ADB masing-masing
 
 # Alamat host yang ingin Anda ping
-HOST1="104.18.214.235"
-HOST2="104.17.3.81"
+HOST1="host_1"
+HOST2="host_2"
 
 # Variabel untuk menghitung jumlah kegagalan ping per interface
 touch /tmp/failed_count
 
 # Jumlah kegagalan ping berturut-turut sebelum mengaktifkan mode pesawat
-PINGFAIL=3
+PINGFAIL=5
 
 # Waktu tunggu (detik) sebelum menonaktifkan mode pesawat setelah mengaktifkannya
 WAIT_TIME=5
-INTERVAL=1
-PING_TIMEOUT=1  # Timeout dalam detik untuk setiap ping
+INTERVAL=3
+PING_TIMEOUT=5  # Timeout dalam detik untuk setiap ping
 
 # Fungsi untuk mengaktifkan mode pesawat
 enable_airplane_mode() {
