@@ -17,7 +17,9 @@ disable_airplane_mode() {
 }
 
 # Alamat host yang ingin Anda ping
-HOST="alamat_host_anda_1"
+HOST1="alamat_host_anda_1"
+HOST2="alamat_host_anda_2"
+HOST3="alamat_host_anda_3"
 
 # Interface yang ingin digunakan untuk ping (bisa diubah manual)
 INTERFACE="usb0"
@@ -25,31 +27,44 @@ INTERFACE="usb0"
 # Variabel untuk menghitung berapa kali ping gagal
 failed_count=0
 
-# Ping gagal untuk mengaktifkan mode pesawat
+# Jumlah kegagalan ping berturut-turut yang memicu mode pesawat
 pingfail=3
 
-# Waktu tunggu (detik) sebelum mengaktifkan mode pesawat setelah ping gagal
+# Waktu tunggu (detik) sebelum menonaktifkan mode pesawat
 WAIT_TIME=3
 
 # Loop untuk melakukan ping dan mengaktifkan/menonaktifkan mode pesawat
 while true; do
-    PING_RESULT=$(ping -I $INTERFACE -c 1 $HOST 2>&1)
-    if echo "$PING_RESULT" | grep "time=" > /dev/null; then
-        # Ekstrak waktu ping dari output
-        PING_TIME=$(echo "$PING_RESULT" | grep "time=" | sed -e 's/.*time=\([0-9\.]*\) ms.*/\1/')
-        echo "$(date +"%Y-%m-%d %H:%M:%S") - Host dapat dijangkau melalui $INTERFACE. Waktu ping: ${PING_TIME} ms"
-        failed_count=0  # Reset hitungan kegagalan jika host berhasil dijangkau
+    # Ping ketiga host
+    PING_RESULT1=$(ping -I "$INTERFACE" -c 1 "$HOST1" 2>&1)
+    PING_RESULT2=$(ping -I "$INTERFACE" -c 1 "$HOST2" 2>&1)
+    PING_RESULT3=$(ping -I "$INTERFACE" -c 1 "$HOST3" 2>&1)
+
+    # Cek apakah minimal satu host berhasil dijangkau
+    if echo "$PING_RESULT1" | grep "time=" > /dev/null; then
+        PING_TIME=$(echo "$PING_RESULT1" | grep "time=" | sed -e 's/.*time=\([0-9\.]*\) ms.*/\1/')
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Host1 ($HOST1) dapat dijangkau melalui $INTERFACE. Waktu ping: ${PING_TIME} ms"
+        failed_count=0
+    elif echo "$PING_RESULT2" | grep "time=" > /dev/null; then
+        PING_TIME=$(echo "$PING_RESULT2" | grep "time=" | sed -e 's/.*time=\([0-9\.]*\) ms.*/\1/')
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Host2 ($HOST2) dapat dijangkau melalui $INTERFACE. Waktu ping: ${PING_TIME} ms"
+        failed_count=0
+    elif echo "$PING_RESULT3" | grep "time=" > /dev/null; then
+        PING_TIME=$(echo "$PING_RESULT3" | grep "time=" | sed -e 's/.*time=\([0-9\.]*\) ms.*/\1/')
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Host3 ($HOST3) dapat dijangkau melalui $INTERFACE. Waktu ping: ${PING_TIME} ms"
+        failed_count=0
     else
-        echo "$(date +"%Y-%m-%d %H:%M:%S") - Host tidak dapat dijangkau melalui $INTERFACE."
-        failed_count=$((failed_count + 1))  # Tingkatkan hitungan kegagalan
+        echo "$(date +"%Y-%m-%d %H:%M:%S") - Semua host (Host1, Host2, Host3) tidak dapat dijangkau melalui $INTERFACE."
+        failed_count=$((failed_count + 1))
         if [ $failed_count -ge $pingfail ]; then
-            echo "$(date +"%Y-%m-%d %H:%M:%S") - Gagal ping sebanyak $pingfail kali. Mengaktifkan mode pesawat..."
-            enable_airplane_mode  # Jika sudah ada $pingfail kegagalan berturut-turut, aktifkan mode pesawat
-            sleep $WAIT_TIME  # Tunggu beberapa waktu sebelum menonaktifkan mode pesawat
+            echo "$(date +"%Y-%m-%d %H:%M:%S") - Gagal ping ke semua host sebanyak $pingfail kali. Mengaktifkan mode pesawat..."
+            enable_airplane_mode
+            sleep $WAIT_TIME
             echo "$(date +"%Y-%m-%d %H:%M:%S") - Menonaktifkan mode pesawat kembali..."
-            disable_airplane_mode  # Nonaktifkan mode pesawat kembali
-            failed_count=0  # Reset hitungan kegagalan setelah mengaktifkan mode pesawat
+            disable_airplane_mode
+            failed_count=0
         fi
     fi
-    sleep 1  # Tunggu sebelum memeriksa koneksi lagi 
+
+    sleep 1
 done
